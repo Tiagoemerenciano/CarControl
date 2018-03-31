@@ -1,40 +1,59 @@
 package classes;
 
-public class Veiculo {
-	private String placa;
-	private String modelo;
-	private String tipo;
-	private String cor;
+public class Veiculo extends Controle {
 
-	public String getPlaca() {
-		return placa;
-	}
+    private int id;
+    private String placa;
+    private String modelo;
+    private String tipo;
+    private String cor;
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
+    public Veiculo(String placa, String modelo, String tipo, String cor) {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.cor = cor;
+        setStatus(false);
+        setBloqueado(false);
+    }
 
-	public String getModelo() {
-		return modelo;
-	}
+    public String getPlaca() {
+        return placa;
+    }
 
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
 
-	public String getTipo() {
-		return tipo;
-	}
+    public String getModelo() {
+        return modelo;
+    }
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
-	public String getCor() {
-		return cor;
-	}
+    public String getTipo() {
+        return tipo;
+    }
 
-	public void setCor(String cor) {
-		this.cor = cor;
-	}
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

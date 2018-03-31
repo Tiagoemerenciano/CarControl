@@ -1,25 +1,23 @@
 package classes;
 
 public class Controle {
-	private boolean bloqueado;
-	private boolean status;
 
-	public boolean isBloqueado() {
-		return bloqueado;
-	}
+    private boolean bloqueado;
+    private boolean status;
 
-	public void setBloqueado(boolean bloqueado) {
-		this.bloqueado = bloqueado;
-	}
+    public boolean isBloqueado() {
+        return bloqueado;
+    }
 
-	public boolean isStatus() {
-		return status;
-	}
+    public void setBloqueado(boolean bloqueado) {
+        this.bloqueado = bloqueado;
+    }
 
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-	
-	
-	
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 }

@@ -17,6 +17,9 @@ public class Pessoa extends Controle {
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+        public void setId(int id){
+            this.id = id;
+        }
 	public int getId() {
 		return id;
 	}
