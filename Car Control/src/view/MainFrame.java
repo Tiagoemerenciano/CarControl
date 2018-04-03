@@ -104,7 +104,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAcessar)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,9 +216,19 @@ public class MainFrame extends javax.swing.JFrame {
         mnApartamento.setText("Apartamento");
 
         mntmCadastrarApartamento.setText("Cadastrar");
+        mntmCadastrarApartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mntmCadastrarApartamentoActionPerformed(evt);
+            }
+        });
         mnApartamento.add(mntmCadastrarApartamento);
 
         mntmConsultarApartamento.setText("Consultar");
+        mntmConsultarApartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mntmConsultarApartamentoActionPerformed(evt);
+            }
+        });
         mnApartamento.add(mntmConsultarApartamento);
 
         mntmAlterarApartamento.setText("Alterar");
@@ -366,6 +376,18 @@ public class MainFrame extends javax.swing.JFrame {
         desktop.add(bloquearVeiculo);
         bloquearVeiculo.setVisible(true);
     }//GEN-LAST:event_mntmBloquearVeiculoActionPerformed
+
+    private void mntmCadastrarApartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntmCadastrarApartamentoActionPerformed
+        CadastrarApartamentoIFrame cadastrarApartamento = new CadastrarApartamentoIFrame();
+        desktop.add(cadastrarApartamento);
+        cadastrarApartamento.setVisible(true);
+    }//GEN-LAST:event_mntmCadastrarApartamentoActionPerformed
+
+    private void mntmConsultarApartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntmConsultarApartamentoActionPerformed
+        ConsultarApartamentoIFrame consultarApartamento = new ConsultarApartamentoIFrame();
+        desktop.add(consultarApartamento);
+        consultarApartamento.setVisible(true);
+    }//GEN-LAST:event_mntmConsultarApartamentoActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

@@ -7,6 +7,17 @@ public class Apartamento {
     private int qtdVagas;
     private int qtdVeiculos;
 
+    public Apartamento(int qtdVeiculos, int qtdVagas) {
+        this.qtdVeiculos = qtdVeiculos;
+        this.qtdVagas = qtdVagas;
+    }
+
+    public Apartamento(String numero, int qtdVeiculos, int qtdVagas) {
+        this.numero = numero;
+        this.qtdVeiculos = qtdVeiculos;
+        this.qtdVagas = qtdVagas;
+    }
+
     public int getId() {
         return id;
     }
@@ -37,5 +48,9 @@ public class Apartamento {
 
     public void setQtdVeiculos(int qtdVeiculos) {
         this.qtdVeiculos = qtdVeiculos;
+    }
+
+    public String getqtdVagas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -4,10 +4,6 @@ import classes.Usuario;
 import dao.UsuarioDao;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Tiago
- */
 public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
 
     Usuario usuario = new Usuario();

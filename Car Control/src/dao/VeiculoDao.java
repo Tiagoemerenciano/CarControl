@@ -8,10 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Tiago
- */
 public class VeiculoDao {
 
     public void cadastrar(Veiculo veiculo) {
