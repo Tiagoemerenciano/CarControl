@@ -18,7 +18,7 @@ public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
     public AlterarVeiculoIFrame() {
         initComponents();
         preencherTabela();
-        selecionarUsuario();
+        selecionarUsuarios();
     }
 
     @SuppressWarnings("unchecked")
@@ -209,7 +209,7 @@ public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
         tbVeiculos.setModel(model);
     }
 
-    private void selecionarUsuario() {
+    private void selecionarUsuarios() {
         tbVeiculos.addMouseListener(new MouseAdapter() {
             private int linha;
 
