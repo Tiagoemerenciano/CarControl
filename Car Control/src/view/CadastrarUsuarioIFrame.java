@@ -2,9 +2,6 @@ package view;
 
 import classes.Usuario;
 import dao.UsuarioDao;
-import java.awt.Frame;
-import javax.swing.JCheckBox;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,11 +11,10 @@ import javax.swing.JOptionPane;
 public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
 
     Usuario usuario = new Usuario();
-    
+
     public CadastrarUsuarioIFrame() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -81,11 +77,6 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         pnVeiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Veículo"));
 
         cbCadastrarVeiculo.setText("Cadastrar");
-        cbCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCadastrarVeiculoActionPerformed(evt);
-            }
-        });
 
         cbEntradaSaidaVeiculo.setText("Entrada / Saída");
 
@@ -94,18 +85,8 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         cbAlterarVeiculo.setText("Alterar");
 
         cbHistoricoVeiculo.setText("Histórico");
-        cbHistoricoVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbHistoricoVeiculoActionPerformed(evt);
-            }
-        });
 
         cbBloquearVeiculo.setText("Bloquear");
-        cbBloquearVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbBloquearVeiculoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnVeiculoLayout = new javax.swing.GroupLayout(pnVeiculo);
         pnVeiculo.setLayout(pnVeiculoLayout);
@@ -145,18 +126,8 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         cbAlterarPedestre.setText("Alterar");
 
         cbHistoricoPedestre.setText("Histórico");
-        cbHistoricoPedestre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbHistoricoPedestreActionPerformed(evt);
-            }
-        });
 
         cbBloquearPedestre.setText("Bloquear");
-        cbBloquearPedestre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbBloquearPedestreActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnPedestreLayout = new javax.swing.GroupLayout(pnPedestre);
         pnPedestre.setLayout(pnPedestreLayout);
@@ -359,23 +330,10 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbHistoricoVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHistoricoVeiculoActionPerformed
-    }//GEN-LAST:event_cbHistoricoVeiculoActionPerformed
-
-    private void cbBloquearVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBloquearVeiculoActionPerformed
-    }//GEN-LAST:event_cbBloquearVeiculoActionPerformed
-
-    private void cbHistoricoPedestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHistoricoPedestreActionPerformed
-    }//GEN-LAST:event_cbHistoricoPedestreActionPerformed
-
-    private void cbBloquearPedestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBloquearPedestreActionPerformed
-    }//GEN-LAST:event_cbBloquearPedestreActionPerformed
-
     private void cbSelecionarTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSelecionarTudoActionPerformed
-        if(cbSelecionarTudo.isSelected()){
+        if (cbSelecionarTudo.isSelected()) {
             setSelectedAll(true);
-        }
-        else{
+        } else {
             setSelectedAll(false);
         }
     }//GEN-LAST:event_cbSelecionarTudoActionPerformed
@@ -389,62 +347,59 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         setSelectedAll(false);
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void cbCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCadastrarVeiculoActionPerformed
-    }//GEN-LAST:event_cbCadastrarVeiculoActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         String documento = null;
         String cargo = null;
         String permissoes = usuario.setPermissoes(cbAlterarApartamento, cbAlterarPedestre, cbAlterarUsuario, cbAlterarVeiculo,
-            cbBloquearPedestre, cbBloquearUsuario, cbBloquearVeiculo, cbCadastrarApartamento, 
-            cbCadastrarPedestre, cbCadastrarUsuario, cbCadastrarVeiculo, cbConsultarApartamento,
-            cbConsultarPedestre, cbConsultarVeiculo, cbEntradaPedestre, cbEntradaSaidaVeiculo,
-            cbHistoricoPedestre, cbHistoricoVeiculo);
-        
-        if(txtNome.getText().equals("")){
+                cbBloquearPedestre, cbBloquearUsuario, cbBloquearVeiculo, cbCadastrarApartamento,
+                cbCadastrarPedestre, cbCadastrarUsuario, cbCadastrarVeiculo, cbConsultarApartamento,
+                cbConsultarPedestre, cbConsultarVeiculo, cbEntradaPedestre, cbEntradaSaidaVeiculo,
+                cbHistoricoPedestre, cbHistoricoVeiculo);
+
+        if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Nome Obrigatório!", "Dados incompletos!", JOptionPane.WARNING_MESSAGE);
-        } else if(txtLogin.getText().equals("")){
+        } else if (txtLogin.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Login Obrigatório!", "Dados incompletos!", JOptionPane.WARNING_MESSAGE);
-        } else if(new String(txtSenha.getPassword()).equals("")){
+        } else if (new String(txtSenha.getPassword()).equals("")) {
             JOptionPane.showMessageDialog(null, "Senha Obrigatória!", "Dados incompletos!", JOptionPane.WARNING_MESSAGE);
         }
-        
-        if(!txtDocumento.getText().equals("")){
+
+        if (!txtDocumento.getText().equals("")) {
             documento = txtDocumento.getText();
         }
-        
-        if(!txtCargo.getText().equals("")){
+
+        if (!txtCargo.getText().equals("")) {
             cargo = txtCargo.getText();
         }
-        
+
         Usuario user = new Usuario(txtNome.getText(), documento, false, txtLogin.getText(), new String(txtSenha.getPassword()), cargo, permissoes);
-        
+
         UsuarioDao dao = new UsuarioDao();
         dao.cadastrar(user);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    public void setSelectedAll(boolean status){
-            cbAlterarApartamento.setSelected(status);
-            cbAlterarPedestre.setSelected(status);
-            cbAlterarUsuario.setSelected(status);
-            cbAlterarVeiculo.setSelected(status);
-            cbBloquearPedestre.setSelected(status);
-            cbBloquearUsuario.setSelected(status);
-            cbBloquearVeiculo.setSelected(status);
-            cbCadastrarApartamento.setSelected(status);
-            cbCadastrarPedestre.setSelected(status);
-            cbCadastrarUsuario.setSelected(status);
-            cbCadastrarVeiculo.setSelected(status);
-            cbConsultarApartamento.setSelected(status);
-            cbConsultarPedestre.setSelected(status);
-            cbConsultarVeiculo.setSelected(status);
-            cbEntradaPedestre.setSelected(status);
-            cbEntradaSaidaVeiculo.setSelected(status);
-            cbHistoricoPedestre.setSelected(status);
-            cbHistoricoVeiculo.setSelected(status);
-            cbSelecionarTudo.setSelected(status);
+    public void setSelectedAll(boolean status) {
+        cbAlterarApartamento.setSelected(status);
+        cbAlterarPedestre.setSelected(status);
+        cbAlterarUsuario.setSelected(status);
+        cbAlterarVeiculo.setSelected(status);
+        cbBloquearPedestre.setSelected(status);
+        cbBloquearUsuario.setSelected(status);
+        cbBloquearVeiculo.setSelected(status);
+        cbCadastrarApartamento.setSelected(status);
+        cbCadastrarPedestre.setSelected(status);
+        cbCadastrarUsuario.setSelected(status);
+        cbCadastrarVeiculo.setSelected(status);
+        cbConsultarApartamento.setSelected(status);
+        cbConsultarPedestre.setSelected(status);
+        cbConsultarVeiculo.setSelected(status);
+        cbEntradaPedestre.setSelected(status);
+        cbEntradaSaidaVeiculo.setSelected(status);
+        cbHistoricoPedestre.setSelected(status);
+        cbHistoricoVeiculo.setSelected(status);
+        cbSelecionarTudo.setSelected(status);
     }
-        
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;

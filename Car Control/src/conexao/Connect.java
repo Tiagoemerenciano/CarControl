@@ -9,9 +9,9 @@ import java.sql.SQLException;
 public class Connect {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://sql136.main-hosting.eu:3306/u308933879_ccpoo";
-    private static final String USER = "u308933879_tapoo";
-    private static final String PASS = "TiagoArthur1#";
+    private static final String URL = "jdbc:mysql://localhost:3306/car_control";
+    private static final String USER = "root";
+    private static final String PASS = "root";
 
     public static Connection getConnection() {
         try {

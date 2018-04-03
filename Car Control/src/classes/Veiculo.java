@@ -13,8 +13,15 @@ public class Veiculo extends Controle {
         this.modelo = modelo;
         this.tipo = tipo;
         this.cor = cor;
-        setStatus(false);
-        setBloqueado(false);
+    }
+
+    public Veiculo(String placa, String modelo, String tipo, String cor, boolean bloqueado, boolean status) {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.cor = cor;
+        setStatus(status);
+        setBloqueado(bloqueado);
     }
 
     public String getPlaca() {

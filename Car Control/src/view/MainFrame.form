@@ -29,6 +29,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mntmConsultarVeiculoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mntmAlterarVeiculo">
               <Properties>
@@ -42,8 +45,11 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mntmBloquearVeiculo">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Bloquear"/>
+                <Property name="text" type="java.lang.String" value="Bloquear / Desbloquear"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mntmBloquearVeiculoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -228,7 +234,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="loginIFrame" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="217" max="32767" attributes="0"/>
+                          <EmptySpace pref="241" max="32767" attributes="0"/>
                           <Component id="lblCargo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -283,7 +289,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnAcessar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -300,9 +306,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtLogin">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLoginActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="txtSenha">
             </Component>

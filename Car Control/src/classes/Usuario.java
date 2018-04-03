@@ -23,7 +23,7 @@ public class Usuario extends Pessoa {
         setId(id);
         setBloqueado(bloqueado);
     }
-    
+
     public Usuario(String nome, String documento, boolean bloqueado, String login, String senha, String cargo, String permissoes) {
         this.login = login;
         this.senha = senha;
@@ -69,8 +69,6 @@ public class Usuario extends Pessoa {
     public void setBloqueado(boolean bloqueado) {
         this.bloqueado = bloqueado;
     }
-    
-    
 
     public String setPermissoes(JCheckBox cbAlterarApartamento, JCheckBox cbAlterarPedestre, JCheckBox cbAlterarUsuario, JCheckBox cbAlterarVeiculo,
             JCheckBox cbBloquearPedestre, JCheckBox cbBloquearUsuario, JCheckBox cbBloquearVeiculo, JCheckBox cbCadastrarApartamento,

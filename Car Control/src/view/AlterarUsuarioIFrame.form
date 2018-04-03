@@ -220,9 +220,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbCadastrarVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cbEntradaSaidaVeiculo">
               <Properties>
@@ -243,17 +240,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hist&#xf3;rico"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbHistoricoVeiculoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cbBloquearVeiculo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Bloquear"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbBloquearVeiculoActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -320,17 +311,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hist&#xf3;rico"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbHistoricoPedestreActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="cbBloquearPedestre">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Bloquear"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbBloquearPedestreActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

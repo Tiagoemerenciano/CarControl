@@ -1,31 +1,41 @@
 package classes;
 
 public class Apartamento {
-	private String numero;
-	private int qtdVagas;
-	private int qtdVeiculos;
 
-	public String getNumero() {
-		return numero;
-	}
+    private int id;
+    private String numero;
+    private int qtdVagas;
+    private int qtdVeiculos;
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getQtdVagas() {
-		return qtdVagas;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setQtdVagas(int qtdVagas) {
-		this.qtdVagas = qtdVagas;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public int getQtdVeiculos() {
-		return qtdVeiculos;
-	}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
-	public void setQtdVeiculos(int qtdVeiculos) {
-		this.qtdVeiculos = qtdVeiculos;
-	}
+    public int getQtdVagas() {
+        return qtdVagas;
+    }
+
+    public void setQtdVagas(int qtdVagas) {
+        this.qtdVagas = qtdVagas;
+    }
+
+    public int getQtdVeiculos() {
+        return qtdVeiculos;
+    }
+
+    public void setQtdVeiculos(int qtdVeiculos) {
+        this.qtdVeiculos = qtdVeiculos;
+    }
 }
