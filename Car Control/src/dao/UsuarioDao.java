@@ -117,11 +117,11 @@ public class UsuarioDao {
             Connect.closeConnection(con, stmt);
         }
     }
-    
-    public void alterarSenha(int id, String senha){
+
+    public void alterarSenha(int id, String senha) {
         Connection con = Connect.getConnection();
         PreparedStatement stmt = null;
-        
+
         try {
             stmt = con.prepareStatement("UPDATE usuario SET senha = ? WHERE id = ?");
             stmt.setString(1, senha);
@@ -130,8 +130,7 @@ public class UsuarioDao {
             JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao Alterar: " + e);
-        }
-        finally {
+        } finally {
             Connect.closeConnection(con, stmt);
         }
     }

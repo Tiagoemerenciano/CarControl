@@ -24,6 +24,24 @@ public class Veiculo extends Controle {
         setBloqueado(bloqueado);
     }
 
+    public Veiculo(int id, String placa, String modelo, String tipo, String cor, boolean bloqueado, boolean status) {
+        this.id = id;
+        this.placa = placa;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.cor = cor;
+        setStatus(status);
+        setBloqueado(bloqueado);
+    }
+    
+        public Veiculo(String placa, String modelo, String tipo, String cor, boolean bloqueado) {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.cor = cor;
+        setBloqueado(bloqueado);
+    }
+
     public String getPlaca() {
         return placa;
     }

@@ -176,6 +176,11 @@ public class MainFrame extends javax.swing.JFrame {
         mnVeiculo.add(mntmConsultarVeiculo);
 
         mntmAlterarVeiculo.setText("Alterar");
+        mntmAlterarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mntmAlterarVeiculoActionPerformed(evt);
+            }
+        });
         mnVeiculo.add(mntmAlterarVeiculo);
 
         mntmHistoricoVeiculo.setText("Histórico");
@@ -288,7 +293,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_mntmCadastrarVeiculoActionPerformed
 
     private void mntmEntradaSaidaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntmEntradaSaidaVeiculoActionPerformed
-        
+        EntradaSaidaIFrame entradaSaida = new EntradaSaidaIFrame();
+        desktop.add(entradaSaida);
+        entradaSaida.setVisible(true);
     }//GEN-LAST:event_mntmEntradaSaidaVeiculoActionPerformed
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
@@ -366,6 +373,12 @@ public class MainFrame extends javax.swing.JFrame {
         desktop.add(bloquearVeiculo);
         bloquearVeiculo.setVisible(true);
     }//GEN-LAST:event_mntmBloquearVeiculoActionPerformed
+
+    private void mntmAlterarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntmAlterarVeiculoActionPerformed
+        AlterarVeiculoIFrame alterarVeiculo = new AlterarVeiculoIFrame();
+        desktop.add(alterarVeiculo);
+        alterarVeiculo.setVisible(true);
+    }//GEN-LAST:event_mntmAlterarVeiculoActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
