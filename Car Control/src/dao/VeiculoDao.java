@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class VeiculoDao {
@@ -163,5 +165,22 @@ public class VeiculoDao {
         } finally {
             Connect.closeConnection(con, stmt);
         }
+    }
+    
+    public ResultSet entradaSaida () {
+        Connection con = Connect.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.prepareStatement("SELECT v.placa, v.modelo, v.tipo, v.cor, ea.entradasaida, ea.momento FROM entrada_saida as ea INNER JOIN veiculo as v ON v.id = ea.id_veiculo ORDER BY momento");
+            rs = stmt.executeQuery();
+            return rs;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao consultar banco de dados: " + e);
+        } finally {
+            Connect.closeConnection(con, stmt, rs);
+        }
+        return rs;
     }
 }
