@@ -48,8 +48,6 @@ public class CadastrarVeiculoIFrame extends javax.swing.JInternalFrame {
         jLabel3.setText("jLabel3");
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setTitle("Cadastro de Veículos");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));

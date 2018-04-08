@@ -40,8 +40,6 @@ public class AlterarSenhaIFrame extends javax.swing.JInternalFrame {
         btnAlterarSenha = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setTitle("Alterar Senha");
 
         jLabel1.setText("Nova Senha:");

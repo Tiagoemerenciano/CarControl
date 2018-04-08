@@ -27,6 +27,9 @@ public class CadastrarApartamentoIFrame extends javax.swing.JInternalFrame {
 
         jTextField6.setText("jTextField6");
 
+        setClosable(true);
+        setTitle("Cadastro de Apartamentos");
+
         jLabel1.setText("Número do apartamento:");
 
         jLabel2.setText("Quantidade de veículos:");
@@ -107,7 +110,7 @@ public class CadastrarApartamentoIFrame extends javax.swing.JInternalFrame {
         int qtdVeiculos;
         int qtdVagas;
 
-        if (txtNApartamento.getText().equals("")) {
+        if (txtNApartamento.getText().equals("" )) {
             JOptionPane.showMessageDialog(null, "Número de apartamento obrigatório!", "Dados incompletos!", JOptionPane.WARNING_MESSAGE);
         } else if (txtQtdVeiculos.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Quantidade de veiculos obrigatorio!", "Dados incompletos!", JOptionPane.WARNING_MESSAGE);

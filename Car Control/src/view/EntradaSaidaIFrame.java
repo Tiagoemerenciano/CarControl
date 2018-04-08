@@ -10,6 +10,7 @@ public class EntradaSaidaIFrame extends javax.swing.JInternalFrame {
     
     public EntradaSaidaIFrame() {
         initComponents();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -22,10 +23,15 @@ public class EntradaSaidaIFrame extends javax.swing.JInternalFrame {
         lblMomento = new javax.swing.JLabel();
 
         setClosable(true);
-        setIconifiable(true);
         setTitle("Entrada / Saída");
 
         jLabel1.setText("PLACA:");
+
+        txtPlaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlacaActionPerformed(evt);
+            }
+        });
 
         btnEntradaSaida.setText("Entrada / Saída");
         btnEntradaSaida.addActionListener(new java.awt.event.ActionListener() {
@@ -74,11 +80,16 @@ public class EntradaSaidaIFrame extends javax.swing.JInternalFrame {
             Veiculo veiculo = dao.consultar(txtPlaca.getText());
             if(veiculo.isStatus()){
                 dao.saida(veiculo);
-            } else {
+            } else if (!veiculo.isBloqueado()){
                 dao.entrada(veiculo);
+            } else {
+                JOptionPane.showMessageDialog(null, "Veículo bloqueado!");
             }
         }
     }//GEN-LAST:event_btnEntradaSaidaActionPerformed
+
+    private void txtPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlacaActionPerformed
+    }//GEN-LAST:event_txtPlacaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

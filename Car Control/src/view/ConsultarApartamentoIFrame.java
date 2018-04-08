@@ -22,6 +22,9 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
         lblVagas = new javax.swing.JLabel();
         lblVeiculos = new javax.swing.JLabel();
 
+        setClosable(true);
+        setTitle("Consulta de Apartamentos");
+
         txtNApartametno.setText("APARTAMENTO: ");
 
         txtNApartamento.addActionListener(new java.awt.event.ActionListener() {

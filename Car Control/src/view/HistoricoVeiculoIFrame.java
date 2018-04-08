@@ -32,6 +32,10 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        setClosable(true);
+        setResizable(true);
+        setTitle("Histórico de Entradas e saídas");
+
         tbVeiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -56,21 +60,21 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 332, Short.MAX_VALUE)
+            .addGap(0, 346, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(15, Short.MAX_VALUE)))
         );
 
         pack();
@@ -85,7 +89,7 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
             }
         };
 
-        Object[] colunas = new Object[4];
+        Object[] colunas = new Object[6];
         colunas[0] = "Placa";
         colunas[1] = "Modelo";
         colunas[2] = "Tipo";
@@ -102,7 +106,7 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
                 linhas[1] = rsVeiculo.getString("modelo");
                 linhas[2] = rsVeiculo.getString("tipo");
                 linhas[3] = rsVeiculo.getString("cor");
-                linhas[4] = rsVeiculo.getString("entradasaida");
+                linhas[4] = rsVeiculo.getString("entrada_saida");
                 linhas[5] = rsVeiculo.getTimestamp("momento").toString();
                 model.addRow(linhas);
             }

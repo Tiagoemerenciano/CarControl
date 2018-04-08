@@ -54,8 +54,6 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         btnLimpar = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setTitle("Cadastro de Usuários");
 
         jLabel1.setText("*Nome:");

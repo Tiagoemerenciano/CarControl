@@ -39,6 +39,9 @@ public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
         cbCor = new javax.swing.JComboBox<>();
         cbBloqueado = new javax.swing.JCheckBox();
 
+        setClosable(true);
+        setTitle("Alteração de Veículos");
+
         jLabel2.setText("MODELO:");
 
         txtPlaca.setEditable(false);

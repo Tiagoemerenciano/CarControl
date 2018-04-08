@@ -29,7 +29,6 @@ public class ConsultarVeiculoIFrame extends javax.swing.JInternalFrame {
         lblStatus = new javax.swing.JLabel();
 
         setClosable(true);
-        setIconifiable(true);
         setTitle("Consultar Veículo");
 
         jLabel1.setText("PLACA:");

@@ -57,6 +57,9 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Car Control");
 
+        desktop.setBackground(new java.awt.Color(51, 51, 51));
+        desktop.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         loginIFrame.setTitle("Acesso");
         loginIFrame.setAutoscrolls(true);
         loginIFrame.setVisible(true);
@@ -104,7 +107,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAcessar)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,7 +133,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(lblCargo)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desktopLayout.createSequentialGroup()
-                .addGap(0, 348, Short.MAX_VALUE)
+                .addGap(0, 344, Short.MAX_VALUE)
                 .addComponent(loginIFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(318, 318, 318))
         );
@@ -144,7 +147,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(desktopLayout.createSequentialGroup()
                         .addGap(209, 209, 209)
                         .addComponent(loginIFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
                         .addComponent(lblCargo)))
                 .addContainerGap())
         );
@@ -184,6 +187,11 @@ public class MainFrame extends javax.swing.JFrame {
         mnVeiculo.add(mntmAlterarVeiculo);
 
         mntmHistoricoVeiculo.setText("Histórico");
+        mntmHistoricoVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mntmHistoricoVeiculoActionPerformed(evt);
+            }
+        });
         mnVeiculo.add(mntmHistoricoVeiculo);
 
         mntmBloquearVeiculo.setText("Bloquear / Desbloquear");
@@ -197,6 +205,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuBar1.add(mnVeiculo);
 
         mnPedestre.setText("Pedestre");
+        mnPedestre.setHideActionText(true);
 
         mntmCadastrarPedestre.setText("Cadastrar");
         mnPedestre.add(mntmCadastrarPedestre);
@@ -286,11 +295,11 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop)
+            .addComponent(desktop, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktop)
+            .addComponent(desktop, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         setBounds(0, 0, 916, 660);
@@ -400,6 +409,12 @@ public class MainFrame extends javax.swing.JFrame {
         desktop.add(alterarVeiculo);
         alterarVeiculo.setVisible(true);
     }//GEN-LAST:event_mntmAlterarVeiculoActionPerformed
+
+    private void mntmHistoricoVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntmHistoricoVeiculoActionPerformed
+        HistoricoVeiculoIFrame historicoVeiculo = new HistoricoVeiculoIFrame();
+        desktop.add(historicoVeiculo);
+        historicoVeiculo.setVisible(true);
+    }//GEN-LAST:event_mntmHistoricoVeiculoActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

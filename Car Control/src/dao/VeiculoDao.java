@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class VeiculoDao {
@@ -95,7 +93,7 @@ public class VeiculoDao {
             stmt = con.prepareStatement("UPDATE veiculo SET status = 1 WHERE placa = ?");
             stmt.setString(1, veiculo.getPlaca());
             stmt.executeUpdate();
-            stmt = con.prepareStatement("INSERT INTO entrada_saida (id_veiculo, momento, tipo) VALUES (?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO entrada_saida (id_veiculo, momento, entrada_saida) VALUES (?,?,?)");
             stmt.setInt(1, veiculo.getId());
             stmt.setString(2, dateTime);
             stmt.setString(3, "Entrada");
@@ -119,7 +117,7 @@ public class VeiculoDao {
             stmt = con.prepareStatement("UPDATE veiculo SET status = 0 WHERE placa = ?");
             stmt.setString(1, veiculo.getPlaca());
             stmt.executeUpdate();
-            stmt = con.prepareStatement("INSERT INTO entrada_saida (id_veiculo, momento, tipo) VALUES (?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO entrada_saida (id_veiculo, momento, entrada_saida) VALUES (?,?,?)");
             stmt.setInt(1, veiculo.getId());
             stmt.setString(2, dateTime);
             stmt.setString(3, "Saída");
@@ -166,20 +164,18 @@ public class VeiculoDao {
             Connect.closeConnection(con, stmt);
         }
     }
-    
-    public ResultSet entradaSaida () {
+
+    public ResultSet entradaSaida() {
         Connection con = Connect.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        
+
         try {
-            stmt = con.prepareStatement("SELECT v.placa, v.modelo, v.tipo, v.cor, ea.entradasaida, ea.momento FROM entrada_saida as ea INNER JOIN veiculo as v ON v.id = ea.id_veiculo ORDER BY momento");
+            stmt = con.prepareStatement("SELECT v.placa, v.modelo, v.tipo, v.cor, ea.entrada_saida, ea.momento FROM entrada_saida as ea INNER JOIN veiculo as v ON v.id = ea.id_veiculo ORDER BY momento");
             rs = stmt.executeQuery();
             return rs;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao consultar banco de dados: " + e);
-        } finally {
-            Connect.closeConnection(con, stmt, rs);
         }
         return rs;
     }

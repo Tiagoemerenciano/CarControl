@@ -69,7 +69,6 @@ public class AlterarUsuarioIFrame extends javax.swing.JInternalFrame {
         btnAlterar = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
         setResizable(true);
         setTitle("Alteração de Usuário");
 

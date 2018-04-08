@@ -19,7 +19,6 @@ public class BloquearDesbloquearVeiculoIFrame extends javax.swing.JInternalFrame
         btnBloquear = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
         setTitle("Bloquear/Desbloquear Veículo");
 
         jLabel1.setText("PLACA:");
