@@ -218,7 +218,7 @@ public class Veiculo extends Controle implements VeiculoDao {
             if (rs.next()) {
                 stmt = con.prepareStatement("UPDATE apartamento SET vagasDisponiveis = ? WHERE numero = ?");
                 vagasDisponiveis = rs.getInt("vagasDisponiveis");
-                stmt.setInt(1, vagasDisponiveis - 1);
+                stmt.setInt(1, vagasDisponiveis + 1);
                 stmt.setString(2, veiculo.getApartamento());
                 stmt.executeUpdate();
             }

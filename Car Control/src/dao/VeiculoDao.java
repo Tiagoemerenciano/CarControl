@@ -22,4 +22,5 @@ public interface VeiculoDao {
     public void alterar(Veiculo veiculo);
     
     public ResultSet entradaSaida ();
+    
 }

@@ -25,6 +25,9 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Consulta de apartamentos");
 
+        setClosable(true);
+        setTitle("Consulta de Apartamentos");
+
         txtNApartametno.setText("APARTAMENTO: ");
 
         txtNApartamento.addActionListener(new java.awt.event.ActionListener() {
