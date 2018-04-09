@@ -1,10 +1,12 @@
 package view;
 
-import classes.Veiculo;
-import dao.VeiculoDao;
+import controller.VeiculoController;
+import model.Veiculo;
 import javax.swing.JOptionPane;
 
 public class ConsultarVeiculoIFrame extends javax.swing.JInternalFrame {
+    
+    private final VeiculoController control = new VeiculoController();
     
     public ConsultarVeiculoIFrame() {
         initComponents();
@@ -29,7 +31,6 @@ public class ConsultarVeiculoIFrame extends javax.swing.JInternalFrame {
         lblStatus = new javax.swing.JLabel();
 
         setClosable(true);
-        setIconifiable(true);
         setTitle("Consultar Veículo");
 
         jLabel1.setText("PLACA:");
@@ -121,8 +122,7 @@ public class ConsultarVeiculoIFrame extends javax.swing.JInternalFrame {
         if(txtPlaca.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Placa obrigatória!");
         } else {
-            VeiculoDao dao = new VeiculoDao();
-            Veiculo veiculo = dao.consultar(txtPlaca.getText());
+            Veiculo veiculo = control.consultar(txtPlaca.getText());
             if(veiculo != null){
                 String bloqueado;
                 String status;

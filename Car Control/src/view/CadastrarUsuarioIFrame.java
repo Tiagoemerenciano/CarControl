@@ -1,6 +1,7 @@
 package view;
 
-import classes.Usuario;
+import controller.UsuarioController;
+import model.Usuario;
 import dao.UsuarioDao;
 import javax.swing.JOptionPane;
 
@@ -54,8 +55,6 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         btnLimpar = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setTitle("Cadastro de Usuários");
 
         jLabel1.setText("*Nome:");
@@ -367,11 +366,9 @@ public class CadastrarUsuarioIFrame extends javax.swing.JInternalFrame {
         if (!txtCargo.getText().equals("")) {
             cargo = txtCargo.getText();
         }
-
-        Usuario user = new Usuario(txtNome.getText(), documento, false, txtLogin.getText(), new String(txtSenha.getPassword()), cargo, permissoes);
-
-        UsuarioDao dao = new UsuarioDao();
-        dao.cadastrar(user);
+        
+        UsuarioController control = new UsuarioController();
+        control.cadastrar(txtNome.getText(), documento, txtLogin.getText(), new String(txtSenha.getPassword()), cargo, permissoes);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     public void setSelectedAll(boolean status) {

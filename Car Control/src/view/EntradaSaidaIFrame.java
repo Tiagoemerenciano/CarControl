@@ -1,12 +1,12 @@
 package view;
 
-import classes.Veiculo;
-import dao.VeiculoDao;
+import controller.VeiculoController;
+import model.Veiculo;
 import javax.swing.JOptionPane;
 
 public class EntradaSaidaIFrame extends javax.swing.JInternalFrame {
 
-    private final VeiculoDao dao = new VeiculoDao();
+    private final VeiculoController control = new VeiculoController();
     
     public EntradaSaidaIFrame() {
         initComponents();
@@ -22,7 +22,6 @@ public class EntradaSaidaIFrame extends javax.swing.JInternalFrame {
         lblMomento = new javax.swing.JLabel();
 
         setClosable(true);
-        setIconifiable(true);
         setTitle("Entrada / Saída");
 
         jLabel1.setText("PLACA:");
@@ -71,11 +70,11 @@ public class EntradaSaidaIFrame extends javax.swing.JInternalFrame {
         if(txtPlaca.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Placa obrigatória!");
         } else {
-            Veiculo veiculo = dao.consultar(txtPlaca.getText());
+            Veiculo veiculo = control.consultar(txtPlaca.getText());
             if(veiculo.isStatus()){
-                dao.saida(veiculo);
+                control.saida(veiculo);
             } else {
-                dao.entrada(veiculo);
+                control.entrada(veiculo);
             }
         }
     }//GEN-LAST:event_btnEntradaSaidaActionPerformed

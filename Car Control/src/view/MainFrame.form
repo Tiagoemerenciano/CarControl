@@ -3,6 +3,18 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" id="MenuBar.highlight" palette="3" red="ff" type="palette"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="33" type="rgb"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+      </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="mnVeiculo">
           <Properties>
@@ -45,6 +57,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hist&#xf3;rico"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mntmHistoricoVeiculoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mntmBloquearVeiculo">
               <Properties>
@@ -207,6 +222,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="desktop">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="33" red="33" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -243,7 +263,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="loginIFrame" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="241" max="32767" attributes="0"/>
+                          <EmptySpace pref="243" max="32767" attributes="0"/>
                           <Component id="lblCargo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -298,7 +318,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnAcessar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -1,7 +1,10 @@
 package view;
 
-import classes.Usuario;
+import conexao.Connect;
+import controller.UsuarioController;
+import model.Usuario;
 import dao.UsuarioDao;
+import java.sql.Connection;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -9,6 +12,7 @@ import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
 
     public static Usuario usuarioLogado;
+    public static Connection con = Connect.getConnection();
 
     public MainFrame() {
         initComponents();
@@ -57,6 +61,8 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Car Control");
 
+        desktop.setBackground(new java.awt.Color(51, 51, 51));
+
         loginIFrame.setTitle("Acesso");
         loginIFrame.setAutoscrolls(true);
         loginIFrame.setVisible(true);
@@ -104,7 +110,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAcessar)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,10 +150,15 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(desktopLayout.createSequentialGroup()
                         .addGap(209, 209, 209)
                         .addComponent(loginIFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                         .addComponent(lblCargo)))
                 .addContainerGap())
         );
+
+        jMenuBar1.setBackground(javax.swing.UIManager.getDefaults().getColor("MenuBar.highlight"));
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(51, 51, 51));
+        jMenuBar1.setBorderPainted(false);
 
         mnVeiculo.setText("Veículo");
 
@@ -184,6 +195,11 @@ public class MainFrame extends javax.swing.JFrame {
         mnVeiculo.add(mntmAlterarVeiculo);
 
         mntmHistoricoVeiculo.setText("Histórico");
+        mntmHistoricoVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mntmHistoricoVeiculoActionPerformed(evt);
+            }
+        });
         mnVeiculo.add(mntmHistoricoVeiculo);
 
         mntmBloquearVeiculo.setText("Bloquear / Desbloquear");
@@ -309,8 +325,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_mntmEntradaSaidaVeiculoActionPerformed
 
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-        UsuarioDao dao = new UsuarioDao();
-        Usuario user = dao.logar(txtLogin.getText(), new String(txtSenha.getPassword()));
+        UsuarioController control = new UsuarioController();
+        Usuario user = control.logar(txtLogin.getText(), new String(txtSenha.getPassword()));
 
         // Caso a função dao.logar retorne um usuário
         if (user != null) {
@@ -400,6 +416,12 @@ public class MainFrame extends javax.swing.JFrame {
         desktop.add(alterarVeiculo);
         alterarVeiculo.setVisible(true);
     }//GEN-LAST:event_mntmAlterarVeiculoActionPerformed
+
+    private void mntmHistoricoVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntmHistoricoVeiculoActionPerformed
+        HistoricoVeiculoIFrame historicoEntrada = new HistoricoVeiculoIFrame();
+        desktop.add(historicoEntrada);
+        historicoEntrada.setVisible(true);
+    }//GEN-LAST:event_mntmHistoricoVeiculoActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

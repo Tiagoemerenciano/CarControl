@@ -1,7 +1,7 @@
 package view;
 
-import classes.Apartamento;
-import dao.ApartamentoDao;
+import controller.ApartamentoController;
+import model.Apartamento;
 import javax.swing.JOptionPane;
 
 public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
@@ -18,9 +18,12 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
         txtNApartamento = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         lblVagas = new javax.swing.JLabel();
-        lblVeiculos = new javax.swing.JLabel();
+        lblVagasDisponiveis = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        setClosable(true);
+        setTitle("Consulta de apartamentos");
 
         txtNApartametno.setText("APARTAMENTO: ");
 
@@ -39,22 +42,22 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Quantidade de vagas:");
 
-        jLabel3.setText("Quantidade de veiculos:");
-
         lblVagas.setText(" ");
 
-        lblVeiculos.setText(" ");
+        lblVagasDisponiveis.setText(" ");
+
+        jLabel3.setText("Vagas disponíveis:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addComponent(txtNApartametno))
+                    .addComponent(txtNApartametno)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -62,7 +65,7 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
                         .addGap(2, 2, 2)
                         .addComponent(btnConsultar))
                     .addComponent(lblVagas)
-                    .addComponent(lblVeiculos))
+                    .addComponent(lblVagasDisponiveis))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,9 +82,9 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
                     .addComponent(lblVagas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblVeiculos))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVagasDisponiveis))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,10 +98,10 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
         if (txtNApartamento.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Numero de apartamento obrigatorio!");
         } else {
-            ApartamentoDao dao = new ApartamentoDao();
-            Apartamento apto = dao.consultarApartamento(txtNApartamento.getText());
+            ApartamentoController control = new ApartamentoController();
+            Apartamento apto = control.consultar(txtNApartamento.getText());
             lblVagas.setText(Integer.toString(apto.getQtdVagas()));
-            lblVeiculos.setText(Integer.toString(apto.getQtdVeiculos()));
+            lblVagasDisponiveis.setText(Integer.toString(apto.getVagasDisponiveis()));
         }
 
     }//GEN-LAST:event_btnConsultarActionPerformed
@@ -109,7 +112,7 @@ public class ConsultarApartamentoIFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblVagas;
-    private javax.swing.JLabel lblVeiculos;
+    private javax.swing.JLabel lblVagasDisponiveis;
     private javax.swing.JTextField txtNApartamento;
     private javax.swing.JLabel txtNApartametno;
     // End of variables declaration//GEN-END:variables

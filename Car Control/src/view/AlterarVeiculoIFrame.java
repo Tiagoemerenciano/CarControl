@@ -1,9 +1,8 @@
 package view;
 
-import classes.Usuario;
-import classes.Veiculo;
+import model.Veiculo;
 import conexao.Connect;
-import dao.VeiculoDao;
+import controller.VeiculoController;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
@@ -13,12 +12,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
 
-    private VeiculoDao dao = new VeiculoDao();
+    private final VeiculoController control = new VeiculoController();
 
     public AlterarVeiculoIFrame() {
         initComponents();
         preencherTabela();
-        selecionarUsuarios();
+        selecionarVeiculo();
     }
 
     @SuppressWarnings("unchecked")
@@ -38,6 +37,10 @@ public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
         rbMoto = new javax.swing.JRadioButton();
         cbCor = new javax.swing.JComboBox<>();
         cbBloqueado = new javax.swing.JCheckBox();
+
+        setClosable(true);
+        setResizable(true);
+        setTitle("Alteração de veículos");
 
         jLabel2.setText("MODELO:");
 
@@ -169,13 +172,13 @@ public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
             rbCarro.setActionCommand("Carro");
             rbMoto.setActionCommand("Moto");
             boolean bloqueado = cbBloqueado.isSelected();
-            Veiculo veiculo = new Veiculo(txtPlaca.getText(), txtModelo.getText(), grpTipo.getSelection().getActionCommand(), cbCor.getSelectedItem().toString(), bloqueado);
-            dao.alterar(veiculo);
+            
+            control.alterar(txtPlaca.getText(), txtModelo.getText(), grpTipo.getSelection().getActionCommand(), cbCor.getSelectedItem().toString(), bloqueado);
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void preencherTabela() {
-        ResultSet rs = dao.listarVeiculos();
+        ResultSet rs = control.listar();
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -209,7 +212,7 @@ public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
         tbVeiculos.setModel(model);
     }
 
-    private void selecionarUsuarios() {
+    private void selecionarVeiculo() {
         tbVeiculos.addMouseListener(new MouseAdapter() {
             private int linha;
 
@@ -218,7 +221,7 @@ public class AlterarVeiculoIFrame extends javax.swing.JInternalFrame {
                 if (e.getClickCount() == 1) {
                     linha = tbVeiculos.getSelectedRow();
                     System.out.println(String.valueOf(tbVeiculos.getValueAt(linha, 0)));
-                    Veiculo veiculo = dao.consultar(String.valueOf(tbVeiculos.getValueAt(linha, 0)));
+                    Veiculo veiculo = control.consultar(String.valueOf(tbVeiculos.getValueAt(linha, 0)));
                     txtPlaca.setText(veiculo.getPlaca());
                     txtModelo.setText(veiculo.getModelo());
                     if (veiculo.getTipo().equals("Carro")) {

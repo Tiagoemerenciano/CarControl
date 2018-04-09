@@ -1,11 +1,14 @@
 package view;
 
-import classes.Veiculo;
+import controller.VeiculoController;
+import model.Veiculo;
 import dao.VeiculoDao;
 import javax.swing.JOptionPane;
 
 public class BloquearDesbloquearVeiculoIFrame extends javax.swing.JInternalFrame {
 
+        private final VeiculoController control = new VeiculoController();
+        
     public BloquearDesbloquearVeiculoIFrame() {
         initComponents();
     }
@@ -19,7 +22,6 @@ public class BloquearDesbloquearVeiculoIFrame extends javax.swing.JInternalFrame
         btnBloquear = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
         setTitle("Bloquear/Desbloquear Veículo");
 
         jLabel1.setText("PLACA:");
@@ -59,14 +61,13 @@ public class BloquearDesbloquearVeiculoIFrame extends javax.swing.JInternalFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBloquearActionPerformed
-        VeiculoDao dao = new VeiculoDao();
-        Veiculo veiculo = dao.consultar(txtPlaca.getText());
+        Veiculo veiculo = control.consultar(txtPlaca.getText());
         if (veiculo != null) {
             if (veiculo.isBloqueado()) {
-                dao.desbloquear(txtPlaca.getText());
+                control.desbloquear(txtPlaca.getText());
                 JOptionPane.showMessageDialog(null, "Veículo desbloqueado com sucesso!");
             } else if(!veiculo.isBloqueado()){
-                dao.bloquear(txtPlaca.getText());
+                control.bloquear(txtPlaca.getText());
                 JOptionPane.showMessageDialog(null, "Veículo bloqueado com sucesso!");
             }
         } else {

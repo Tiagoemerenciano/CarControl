@@ -1,8 +1,8 @@
 package view;
 
-import classes.Usuario;
+import model.Usuario;
 import conexao.Connect;
-import dao.UsuarioDao;
+import controller.UsuarioController;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
@@ -15,8 +15,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class AlterarUsuarioIFrame extends javax.swing.JInternalFrame {
 
-    final private UsuarioDao dao = new UsuarioDao();
-    private Usuario usuario = new Usuario();
+    private final UsuarioController control = new UsuarioController();
+    private Usuario usuario;
     private int userId;
 
     public AlterarUsuarioIFrame() {
@@ -69,7 +69,6 @@ public class AlterarUsuarioIFrame extends javax.swing.JInternalFrame {
         btnAlterar = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
         setResizable(true);
         setTitle("Alteração de Usuário");
 
@@ -402,13 +401,11 @@ public class AlterarUsuarioIFrame extends javax.swing.JInternalFrame {
 
         bloqueado = cbBloqueado.isSelected();
 
-        Usuario user = new Usuario(userId, txtNome.getText(), documento, bloqueado, txtLogin.getText(), new String(txtSenha.getPassword()), cargo, permissoes);
-
-        dao.alterarUsuario(user);
+        control.alterar(userId, txtNome.getText(), documento, bloqueado, txtLogin.getText(), new String(txtSenha.getPassword()), cargo, permissoes);
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void preencherTabela() {
-        ResultSet rs = dao.listarUsuarios();
+        ResultSet rs = control.listar();
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -452,8 +449,7 @@ public class AlterarUsuarioIFrame extends javax.swing.JInternalFrame {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 1) {
                     linha = tbUsuarios.getSelectedRow();
-                    System.out.println(String.valueOf(tbUsuarios.getValueAt(linha, 2)));
-                    Usuario usuario = dao.consultarUsuario(String.valueOf(tbUsuarios.getValueAt(linha, 2)));
+                    usuario = control.consultar(String.valueOf(tbUsuarios.getValueAt(linha, 2)));
                     userId = usuario.getId();
                     txtNome.setText(usuario.getNome());
                     txtDocumento.setText(usuario.getDocumento());

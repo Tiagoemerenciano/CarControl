@@ -1,7 +1,7 @@
 package view;
 
 import conexao.Connect;
-import dao.VeiculoDao;
+import controller.VeiculoController;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
 
-    private VeiculoDao dao = new VeiculoDao();
+    private final VeiculoController control = new VeiculoController();
 
     public HistoricoVeiculoIFrame() {
         initComponents();
@@ -31,6 +31,9 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
+
+        setClosable(true);
+        setTitle("Histórico de veículos");
 
         tbVeiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -56,11 +59,11 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 816, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
@@ -77,7 +80,7 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void preencherTabela() {
-        ResultSet rsVeiculo = dao.entradaSaida();
+        ResultSet rsVeiculo = control.entradaSaida();
         DefaultTableModel model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -85,7 +88,7 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
             }
         };
 
-        Object[] colunas = new Object[4];
+        Object[] colunas = new Object[6];
         colunas[0] = "Placa";
         colunas[1] = "Modelo";
         colunas[2] = "Tipo";
@@ -102,7 +105,7 @@ public class HistoricoVeiculoIFrame extends javax.swing.JInternalFrame {
                 linhas[1] = rsVeiculo.getString("modelo");
                 linhas[2] = rsVeiculo.getString("tipo");
                 linhas[3] = rsVeiculo.getString("cor");
-                linhas[4] = rsVeiculo.getString("entradasaida");
+                linhas[4] = rsVeiculo.getString("entrada_saida");
                 linhas[5] = rsVeiculo.getTimestamp("momento").toString();
                 model.addRow(linhas);
             }
