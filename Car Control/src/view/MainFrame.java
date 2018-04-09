@@ -110,7 +110,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAcessar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,12 +150,12 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(desktopLayout.createSequentialGroup()
                         .addGap(209, 209, 209)
                         .addComponent(loginIFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
                         .addComponent(lblCargo)))
                 .addContainerGap())
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
         jMenuBar1.setBorder(null);
         jMenuBar1.setForeground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setBorderPainted(false);

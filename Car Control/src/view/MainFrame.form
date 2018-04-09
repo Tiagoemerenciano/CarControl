@@ -5,7 +5,7 @@
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="99" type="rgb"/>
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -263,7 +263,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="loginIFrame" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="247" max="32767" attributes="0"/>
+                          <EmptySpace pref="239" max="32767" attributes="0"/>
                           <Component id="lblCargo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -318,7 +318,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnAcessar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
